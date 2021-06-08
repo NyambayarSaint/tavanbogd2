@@ -1,13 +1,24 @@
+import { returnLanguage } from "./parseCookies"
+
 const FormatDate = (string, dotted) => {
+    const lang = returnLanguage()
     if (dotted) {
         let date = new Date(string)
         date = date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate()
         return date
         return
     }
-    let date = new Date(string)
-    date = date.getFullYear() + ' оны ' + (date.getMonth() + 1) + ' сарын ' + date.getDate()
-    return date
+    if (lang === "mn") {
+        let date = new Date(string)
+        date = date.getFullYear() + ' оны ' + (date.getMonth() + 1) + ' сарын ' + date.getDate()
+        return date
+    }
+    else {
+        let date = new Date(string)
+        date = date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate()
+        return date
+    }
+
 }
 
 export const FormatDateFull = (string) => {

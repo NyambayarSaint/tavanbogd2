@@ -9,8 +9,9 @@ export const fontWeightNormal = 400;
 
 export const headerHeight = 50;
 
-export const mainColor = "#b1954f";
-export const mainColor2 = "#cfb56a";
+export const mainColor = "#2957a4";
+export const mainColor2 = "#00a859";
+export const mainColor3 = "#203e73";
 export const red = "#c61827";
 export const blue = "#0066c0";
 

@@ -23,27 +23,35 @@ export default elasticPagination;
 
 const Pag = styled.div`
 display:flex;
+justify-content:space-between;
+width:100%;
+margin-top:15px;
 div{
-    transition: all 250ms ease 0s;
-    border: none;
-    margin: 5px;
-    font-size: 1.3em;
-    content: "";
-    height: 15px;
-    width: 15px;
-    box-shadow: ${({ theme }) => theme.mainColor} 0px 0px 1px 3px;
-    border-radius: 50%;
-    outline: none;
-    ${({ color }) => color === 'black' && `
-        box-shadow: black 0px 0px 1px 3px;
-        opacity:0.3;
-    `};
+    width:50px;
+    height:6px;
+    margin:0px 5px;
+    background:white;
+    border:1px solid #162B4E;
+    flex:1;
+    position:relative;
     &.active{
-        box-shadow:rgb(177 149 79) 0px 0px 1px 3px;
-        background:white;
-        ${({ color }) => color === 'black' && `
-            opacity:1;
-        `};
+        background:#162B4E;
+        &:after{
+            content:"";
+            position:absolute;
+            bottom:5px;
+            left:50%;
+            margin-left:-3px;
+            width: 0; 
+            height: 0; 
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid #162B4E;
+        }
     }
+    &:last-child{
+        margin-right:5px;
+    }
+    
 }
 `

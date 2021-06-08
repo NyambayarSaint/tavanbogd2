@@ -22,6 +22,6 @@ const Index = ({data}) => {
 export default Index;
 
 export async function getServerSideProps({params, req}){
-    let res = await checkLanguage(`/pages?Slug=${params.id}`, req, true);
+    let res = await checkLanguage(`/pages?Slug=${params.id}`, req);
     return {props: {data: res.data[0]}}
 }
