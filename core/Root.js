@@ -4,7 +4,6 @@ import { MenuContext } from '@/miscs/ContextMenuProvider';
 import { useContext } from "react";
 import styled from "styled-components";
 import PreSeo from "@/components/miscs/PreSeo";
-import ReactNotification from 'react-notifications-component'
 import Promotion from './Promotion';
 import Promo from './Promo';
 
@@ -14,7 +13,6 @@ export default function Root(props) {
 
     return (
         <Body>
-            <ReactNotification />
             <PreSeo seo={props.seo} />
             {/* <Promo /> */}
             {completelyLoaded && <Header />}

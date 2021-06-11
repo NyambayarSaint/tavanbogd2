@@ -4,7 +4,6 @@ import minimize from '../miscs/minimize';
 import splitText from '../miscs/splitText';
 
 const Hero = ({data}) => {
-    console.log(data,'hero');
     return (
         <Container image={minimize(data.Image)} imageMobile={data.ImageMobile && minimize(data.ImageMobile)} fade={data.Fade} height={data.Height} heightMobile={data.HeightMobile}>
             <div className="fadeLayer">

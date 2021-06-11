@@ -7,7 +7,6 @@ import { ThemeProvider } from "styled-components";
 import * as theme from "@/miscs/theme";
 import TagManager from "react-gtm-module";
 import { EcommerceProvider } from "@/components/miscs/ContextEcommerceProvider";
-import 'react-notifications-component/dist/theme.css'
 import { parseCookies } from "nookies";
 import Axios from "axios";
 
@@ -25,7 +24,7 @@ class MyApp extends App {
     this.setState({ completelyLoaded: true, config, general: res.data });
 
     // GOOGLE TAG MANAGER
-    // TagManager.initialize({ gtmId: "GTM-WG8JRZ7" });
+    TagManager.initialize({ gtmId: "GTM-NZHP7XV" });
 
     // if (!this.state.promoTriggered) {
     //   setTimeout(() => {

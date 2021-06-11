@@ -15,7 +15,6 @@ const Search = ({ data }) => {
     const [srs, setSrs] = React.useState(null);
 
     React.useEffect(() => {
-        console.log(q, 'query');
         goFetch();
     }, []);
 
@@ -29,7 +28,6 @@ const Search = ({ data }) => {
         setPosts(postsRes.data);
         setPages(pageRes.data);
         setPodcasts(podcastRes.data);
-        console.log(podcastRes.data,'yohoho');
     }
 
     return (

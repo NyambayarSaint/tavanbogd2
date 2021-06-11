@@ -27,6 +27,5 @@ const search = () => {
 export default search;
 
 export async function getServerSideProps({ params, req, query }) {
-    console.log(query, 'query');
     return { props: { data: '' } }
 }

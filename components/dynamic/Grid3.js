@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Carousel from 'react-elastic-carousel'
 import { MenuContext } from '../miscs/ContextMenuProvider';
 import Image from '../Image';
+import elasticPagination from '../miscs/elasticPagination';
 
 const Grid3 = ({ data }) => {
     const { config } = React.useContext(MenuContext);
@@ -23,7 +24,7 @@ const Grid3 = ({ data }) => {
                         ))}
                     </div>
                     :
-                    <Carousel itemsToShow={1}>
+                    <Carousel itemsToShow={1} renderPagination={elasticPagination}>
                         {data.List?.map(el => (
                             <div className="boxx">
                                 <Image src={el.Image} size="medium" />

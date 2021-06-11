@@ -2,12 +2,11 @@ import fetch from "node-fetch";
 import parseCookies, { returnLanguage } from '@/miscs/parseCookies';
 
 const checkLanguage = async (queryString, server) => {
-
     const cookies = parseCookies(server);
     // const httpObject = { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: `query ${queryString}` }) }
     return new Promise(async (resolve, reject) => {
-        if (cookies['tb-lang'] === "en") {
-            const res = await fetch(process.env.serverUrl + queryString);
+        if (cookies['tblang'] === "en") {
+            const res = await fetch(process.env.serverUrlEnglish + queryString);
             const pageData = await res.json();
             return resolve({ data: pageData });
         }
@@ -20,7 +19,7 @@ const checkLanguage = async (queryString, server) => {
 
 
     // return new Promise(async(resolve, reject)=>{
-    //   if(cookies['tb-lang'] === "en"){
+    //   if(cookies['tblang'] === "en"){
     //       const res = await fetch(process.env.serverUrl+'/graphql', httpObject)
     //       const pageData = await res.json()
     //       return resolve({data: pageData.data});

@@ -8,29 +8,48 @@ const Brands = ({ data }) => {
     const [activities, setActivities] = React.useState([]);
     const [filter, setFilter] = React.useState(null);
     const [brands, setBrands] = React.useState([]);
+    const [brandsData, setBrandsData] = React.useState([]);
 
     React.useEffect(() => {
         go();
         goFilter();
-    }, []);
+    }, [filter, brandsData]);
 
     const go = async () => {
-        let res = await checkLanguage('/activities');
-        setActivities(res.data);
+        if (brandsData.length === 0 && activities.length === 0) {
+            let res = await checkLanguage('/activities');
+            setActivities(res.data);
+            let resBrands = await checkLanguage('/brands');
+            setBrandsData(resBrands.data);
+        }
+
     }
 
     const goFilter = async () => {
-        let res = await checkLanguage('/brands');
-        if (!filter) return setBrands(res.data);
+
+        if (!filter) {
+            return setBrands(brandsData);
+        }
+        else {
+            let tmp = [];
+            brandsData.map(el => {
+                if (el.Company) {
+                    if (el.Company.Activities) {
+                        el.Company.Activities.map(K => K === filter && tmp.push(el));
+                    }
+                }
+            });
+            setBrands(tmp);
+        }
     }
-    console.log(filter,'yeyeye');
+
     return (
         <Container>
             <div className="container">
                 <h4>{data.Title}</h4>
                 <div className="activity-con">
-                    <div className="each active">{data.All}</div>
-                    {activities.map(el => <div className="each" key={Math.random()} onClick={() => setFilter(el.id)}>{el.Title}</div>)}
+                    <div className={`each each-selector ${!filter && 'active'}`} onClick={() => setFilter(null)}>{data.All}</div>
+                    {activities.map(el => <div className={`each each-selector ${filter === el.id && 'active'}`} key={Math.random()} onClick={() => setFilter(el.id)}>{el.Title}</div>)}
                 </div>
                 <div className="box-con row">
                     {brands.map(el => (
@@ -67,6 +86,7 @@ const Container = styled.div`
         .activity-con{
             display:flex;
             margin-bottom:5vh;
+            justify-content:center;
             .each{
                 padding:12px 10px;
                 background:rgba(0,0,0,0.05);

@@ -37,13 +37,13 @@ const Allnews = ({ data }) => {
                                 <div className="middle">
                                     <div className="img-con">
                                         <Image src={loaded.social.Thumbnail} size="medium" />
-                                        <Link href={process.env.newsUrl + loaded.social.slug}><a><div className="effect" ><RiExternalLinkLine /></div></a></Link>
+                                        <Link href={'/post_srs/' + loaded.social.slug}><a><div className="effect" ><RiExternalLinkLine /></div></a></Link>
                                     </div>
                                     <div className="info">
                                         <p className="date">{FormatDate(loaded.social.createdAt)}</p>
                                         <h5>{decrease(loaded.social.Title, 65, 30)}...</h5>
                                         <p>{decrease(loaded.social.Description, 110, 72)}...</p>
-                                        <Link href={process.env.newsUrl + loaded.social.slug}><a><div><BiChevronRight /> {data.Readmore}</div></a></Link>
+                                        <Link href={'/post_srs/' + loaded.social.slug}><a><div><BiChevronRight /> {data.Readmore}</div></a></Link>
                                     </div>
                                 </div>
                             </div>
@@ -57,13 +57,13 @@ const Allnews = ({ data }) => {
                                 <div className="middle">
                                     <div className="img-con">
                                         <Image src={loaded.news.Thumbnail} size="medium" />
-                                        <Link href={process.env.newsUrl + loaded.news.slug}><a><div className="effect" ><RiExternalLinkLine /></div></a></Link>
+                                        <Link href={'/post_news/' + loaded.news.slug}><a><div className="effect" ><RiExternalLinkLine /></div></a></Link>
                                     </div>
                                     <div className="info">
                                         <p className="date">{FormatDate(loaded.news.createdAt)}</p>
                                         <h5>{decrease(loaded.news.Title, 65, 30)}...</h5>
                                         <p>{decrease(loaded.news.Description, 110, 72)}...</p>
-                                        <Link href={process.env.newsUrl + loaded.news.slug}><a><div><BiChevronRight /> {data.Readmore}</div></a></Link>
+                                        <Link href={'/post_news/' + loaded.news.slug}><a><div><BiChevronRight /> {data.Readmore}</div></a></Link>
                                     </div>
                                 </div>
                             </div>
@@ -77,13 +77,13 @@ const Allnews = ({ data }) => {
                                 <div className="middle">
                                     <div className="img-con">
                                         <Image src={loaded.podcast.Thumbnail} size="medium" />
-                                        <Link href={process.env.newsUrl + loaded.podcast.slug}><a><div className="effect" ><RiExternalLinkLine /></div></a></Link>
+                                        <Link href={'/post_podcasts/' + loaded.podcast.slug}><a><div className="effect" ><RiExternalLinkLine /></div></a></Link>
                                     </div>
                                     <div className="info">
                                         <p className="date">{FormatDate(loaded.podcast.createdAt)}</p>
                                         <h5>{decrease(loaded.podcast.Title, 65, 30)}...</h5>
                                         <p>{decrease(loaded.podcast.Description, 110, 72)}...</p>
-                                        <Link href={process.env.newsUrl + loaded.podcast.slug}><a><div><BiChevronRight /> {data.Readmore}</div></a></Link>
+                                        <Link href={'/post_podcasts/' + loaded.podcast.slug}><a><div><BiChevronRight /> {data.Readmore}</div></a></Link>
                                     </div>
                                 </div>
                             </div>

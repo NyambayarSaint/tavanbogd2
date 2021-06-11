@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Image from '../Image';
 
 const Directors = ({ data }) => {
-    console.log(data, 'hehe');
     return (
         <Container>
             <div className="container">

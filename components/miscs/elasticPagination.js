@@ -41,7 +41,7 @@ div{
             position:absolute;
             bottom:5px;
             left:50%;
-            margin-left:-3px;
+            margin-left:-5px;
             width: 0; 
             height: 0; 
             border-left: 5px solid transparent;

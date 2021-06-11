@@ -5,7 +5,6 @@ import minimize from '../miscs/minimize';
 
 const Topsection = ({ data }) => {
     const R = useRouter();
-    console.log(data, 'hehe');
     return (
         <Container img={minimize(data.Image)}>
             <div className="effect">

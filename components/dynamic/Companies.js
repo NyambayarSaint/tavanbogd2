@@ -16,7 +16,6 @@ const Companies = () => {
     const go = async () => {
         const res = await checkLanguage('/companies');
         setCompanies(res.data);
-        console.log(res.data, 'res');
     }
 
     return (
