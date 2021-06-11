@@ -43,7 +43,7 @@ const HeaderDesktop = () => {
                         <div className="search-container">
                             <SearchInput />
                         </div>
-                        <div className="language-container">
+                        <div className="language-container" style={{cursor:'pointer'}}>
                             {returnLanguage() === "mn" ? <img onClick={() => changeLang()} src="/img/en.png" /> : <img onClick={() => changeLang()} src="/img/mn.jpg" />}
                         </div>
                     </div>
