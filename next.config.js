@@ -1,7 +1,7 @@
 module.exports = {
     env: {
-        serverUrl: 'http://admin-mn.tavanbogd.mn',
-        serverUrlEnglish: 'http://admin-en.tavanbogd.mn/',
+        serverUrl: 'http://admin-mn.tavanbogd.com',
+        serverUrlEnglish: 'http://admin-en.tavanbogd.com/',
         frontUrl: 'http://tavanbogd.com',
         pageUrl: '/p'
     }

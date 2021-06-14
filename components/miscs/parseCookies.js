@@ -27,7 +27,6 @@ export const changeLang = () => {
 };
 
 export default function parseCookies(req) {
-    if (req) return cookie.parse(req.headers.cookie);
-    else return cookie.parse(document.cookie);
+    return cookie.parse(req ? req.headers.cookie || "" : document.cookie);
 }
 
