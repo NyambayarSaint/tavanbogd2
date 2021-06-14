@@ -1,18 +1,19 @@
-import fetch from "node-fetch";
-import parseCookies, { returnLanguage } from '@/miscs/parseCookies';
+import parseCookies from '@/miscs/parseCookies';
+import Axios from "axios";
+
 
 const checkLanguage = async (queryString, server) => {
     const cookies = parseCookies(server);
     // const httpObject = { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: `query ${queryString}` }) }
     return new Promise(async (resolve, reject) => {
         if (cookies['tblang'] === "en") {
-            const res = await fetch(process.env.serverUrlEnglish + queryString);
-            const pageData = await res.json();
+            const res = await Axios(process.env.serverUrlEnglish + queryString);
+            const pageData = res.data
             return resolve({ data: pageData });
         }
         else {
-            const res = await fetch(process.env.serverUrl + queryString);
-            const pageData = await res.json();
+            const res = await Axios(process.env.serverUrl + queryString);
+            const pageData = res.data
             return resolve({ data: pageData });
         }
     });
