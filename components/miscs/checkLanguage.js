@@ -4,6 +4,15 @@ import Axios from "axios";
 
 const checkLanguage = async (queryString, server) => {
     const cookies = parseCookies(server);
+
+    if(server){
+        console.log(server.headers.host);
+        console.log('servr');
+    }
+    else{
+        console.log(location,'else');
+    }
+
     // const httpObject = { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: `query ${queryString}` }) }
     return new Promise(async (resolve, reject) => {
         if (cookies['tblang'] === "en") {
