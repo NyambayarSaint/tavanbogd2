@@ -13,7 +13,7 @@ const Index = ({ data }) => {
     return (
         <>
             <motion.div exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                <Root>
+                <Root headerType={data.Header === "Ghost" ? 'white' : 'black'} hideHeader={data.Header === "No_header" ? true : false} hideFooter={data.Footer === "No_footer" ? true : false}>
                     {completelyLoaded && <ResolveComponent data={Layout} />}
                 </Root>
             </motion.div>

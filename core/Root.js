@@ -15,10 +15,10 @@ export default function Root(props) {
         <Body>
             <PreSeo seo={props.seo} />
             {/* <Promo /> */}
-            {completelyLoaded && <Header />}
+            {completelyLoaded && !props.hideHeader && <Header headerType={props.headerType} />}
             {/* {completelyLoaded && menu.Promotion && <Promotion data={menu.Promotion} />} */}
             {props.children}
-            {completelyLoaded && <Footer />}
+            {completelyLoaded && !props.hideFooter && <Footer />}
         </Body>
     )
 }

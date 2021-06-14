@@ -6,17 +6,17 @@ import { BsSearch } from 'react-icons/bs';
 import { changeLang, returnLanguage } from '@/components/miscs/parseCookies';
 import SearchInput from './SearchInput';
 
-const HeaderDesktop = () => {
+const HeaderDesktop = ({headerType}) => {
 
     const { general } = React.useContext(MenuContext);
-    const [mode, setMode] = React.useState('black');
+    const [mode, setMode] = React.useState(headerType);
     const [height, setHeight] = React.useState(0);
     const Menu = general.Menu_header;
     const refContainer = React.useRef();
 
     const checkMode = () => {
         const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
-        if (location.pathname === "/") {
+        if (headerType === "white") {
             setHeight(0);
             if (scrollPos === 0) return setMode('white');
             return setMode('black');
