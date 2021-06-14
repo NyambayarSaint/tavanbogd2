@@ -2,7 +2,7 @@
   "name": "hello-next",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next -p 80",
+    "dev": "next -p 3000",
     "build": "next build",
     "start": "next start -p 8080",
     "heroku-postbuild": "npm run build",
