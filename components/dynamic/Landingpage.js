@@ -5,10 +5,12 @@ import { MenuContext } from '../miscs/ContextMenuProvider';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { BsArrowLeft } from 'react-icons/bs'
+import Carousel from 'react-elastic-carousel'
 
 const Landingpage = ({ data }) => {
     const { general } = React.useContext(MenuContext);
     const [onlineMenu, setOnlineMenu] = React.useState(false);
+    const { config } = React.useContext(MenuContext);
     return (
         <Container style={{ backgroundImage: `url(${minimize(data.Background)})` }}>
             <div className="con">
@@ -22,21 +24,40 @@ const Landingpage = ({ data }) => {
                                 <div className="logo-con">
                                     <img src={minimize(data.Logo)} />
                                 </div>
-                                <div className="brands">
-                                    <h4>{data.BrandsTitle}</h4>
-                                    <div className="box-con">
-                                        {data.Brands?.map(el => (
-                                            <Link key={Math.random()} href={el.Link}>
-                                                <a target="__blank">
-                                                    <div className="box">
-                                                        <img src={minimize(el.Image, 'medium')} />
-                                                    </div>
-                                                </a>
-                                            </Link>
+                                {config.width > 768 ?
+                                    <div className="brands">
+                                        <h4>{data.BrandsTitle}</h4>
+                                        <div className="box-con">
+                                            {data.Brands?.map(el => (
+                                                <Link key={Math.random()} href={el.Link}>
+                                                    <a target="__blank">
+                                                        <div className="box">
+                                                            <img src={minimize(el.Image, 'medium')} />
+                                                        </div>
+                                                    </a>
+                                                </Link>
 
-                                        ))}
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
+                                    :
+                                    <div className="brands">
+                                        <h4>{data.BrandsTitle}</h4>
+                                        <div className="box-con">
+                                            <Carousel itemsToShow={3} pagination={false} showArrows={false} autoPlaySpeed={1500} enableAutoPlay={true}>
+                                                {data.Brands?.map(el => (
+                                                    <Link key={Math.random()} href={el.Link}>
+                                                        <a target="__blank">
+                                                            <div className="box">
+                                                                <img src={minimize(el.Image, 'medium')} />
+                                                            </div>
+                                                        </a>
+                                                    </Link>
+                                                ))}
+                                            </Carousel>
+                                        </div>
+                                    </div>
+                                }
                                 <div className="coops">
                                     <h4>{data.CoopsTitle}</h4>
                                     <div className="box-con">
@@ -186,9 +207,7 @@ const Container = styled.div`
                     border:none;
                     padding:6px 30px;
                     svg{
-                        margin-right:10px;
                         font-size:18px;
-                        margin-top:-3px;
                     }
                 }
             }
@@ -262,16 +281,21 @@ const Container = styled.div`
                 button{
                     padding-left:10px !important;
                     padding-right:10px !important;
-                    font-size:${({theme})=>theme.fontSizeSmall};
-                    svg{
-                        display:none;
-                    }
+                    font-size:${({ theme }) => theme.fontSizeSmall};
                 }
             }
             .logo-con{
                 margin-left:-50px !important;
                 img{
                     width:100px !important;
+                }
+            }
+            .brands,.coops{
+                .box-con{
+                    .box{
+                        padding:15px !important;
+                        margin-bottom:5px;
+                    }
                 }
             }
         }
