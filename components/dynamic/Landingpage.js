@@ -17,10 +17,13 @@ const Landingpage = ({ data }) => {
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                             <div className="links-container">
                                 <div className="backbutton" onClick={() => setOnlineMenu(false)}>
-                                    <button><BsArrowLeft />Буцах</button>
+                                    <button><BsArrowLeft />{data.Back}</button>
+                                </div>
+                                <div className="logo-con">
+                                    <img src={minimize(data.Logo)} />
                                 </div>
                                 <div className="brands">
-                                    <h4>Брендүүд</h4>
+                                    <h4>{data.BrandsTitle}</h4>
                                     <div className="box-con">
                                         {data.Brands?.map(el => (
                                             <Link key={Math.random()} href={el.Link}>
@@ -35,7 +38,7 @@ const Landingpage = ({ data }) => {
                                     </div>
                                 </div>
                                 <div className="coops">
-                                    <h4>Хамтран ажиллагч байгууллагууд</h4>
+                                    <h4>{data.CoopsTitle}</h4>
                                     <div className="box-con">
                                         {data.Coop?.map(el => (
                                             <Link key={Math.random()} href={el.Link}>
@@ -189,6 +192,15 @@ const Container = styled.div`
                     }
                 }
             }
+            .logo-con{
+                position:absolute;
+                top:20px;
+                left:50%;
+                margin-left:-100px;
+                img{
+                    width:200px;
+                }
+            }
             .brands,.coops{
                 text-align:center;
                 h4{
@@ -246,10 +258,20 @@ const Container = styled.div`
         .links-container{
             .backbutton{
                 left:15px !important;
-                top:15px !important;
+                top:25px !important;
                 button{
                     padding-left:10px !important;
                     padding-right:10px !important;
+                    font-size:${({theme})=>theme.fontSizeSmall};
+                    svg{
+                        display:none;
+                    }
+                }
+            }
+            .logo-con{
+                margin-left:-50px !important;
+                img{
+                    width:100px !important;
                 }
             }
         }
