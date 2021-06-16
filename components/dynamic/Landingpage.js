@@ -38,7 +38,6 @@ const Landingpage = ({ data }) => {
                                                         </div>
                                                     </a>
                                                 </Link>
-
                                             ))}
                                         </div>
                                     </div>
@@ -60,24 +59,44 @@ const Landingpage = ({ data }) => {
                                         </div>
                                     </div>
                                 }
-                                <div className="coops">
-                                    <h4>{data.CoopsTitle}</h4>
-                                    <div className="box-con">
-                                        {data.Coop?.map(el => (
-                                            <Link key={Math.random()} href={el.Link}>
-                                                <a>
-                                                    <div className="box">
-                                                        <img src={minimize(el.Image, 'medium')} />
-                                                    </div>
-                                                </a>
-                                            </Link>
+                                {config.width > 768 ?
+                                    <div className="coops">
+                                        <div className="deliverby">
+                                            {parser.parse(data.BottomContent)}
+                                        </div>
+                                        <div className="box-con">
+                                            {data.Coop?.map(el => (
+                                                <Link key={Math.random()} href={el.Link}>
+                                                    <a>
+                                                        <div className="box">
+                                                            <img src={minimize(el.Image, 'medium')} />
+                                                        </div>
+                                                    </a>
+                                                </Link>
 
-                                        ))}
+                                            ))}
+                                        </div>
                                     </div>
-                                    <div className="deliverby">
-                                        {parser.parse(data.BottomContent)}
+                                    :
+                                    <div className="coops">
+                                        <div className="deliverby">
+                                            {parser.parse(data.BottomContent)}
+                                        </div>
+                                        <div className="box-con">
+                                            <Carousel itemsToShow={3} pagination={false} showArrows={false} autoPlaySpeed={1500} enableAutoPlay={true}>
+                                                {data.Coop?.map(el => (
+                                                    <Link key={Math.random()} href={el.Link}>
+                                                        <a>
+                                                            <div className="box">
+                                                                <img src={minimize(el.Image, 'medium')} />
+                                                            </div>
+                                                        </a>
+                                                    </Link>
+                                                ))}
+                                            </Carousel>
+                                        </div>
                                     </div>
-                                </div>
+                                }
                             </div>
                         </motion.div>
                     }
@@ -202,6 +221,8 @@ const Container = styled.div`
             display:flex;
             flex-direction:column;
             justify-content:center;
+            padding-left:10vw;
+            padding-right:10vw;
             .backbutton{
                 position:absolute;
                 top:45px;
@@ -235,6 +256,7 @@ const Container = styled.div`
                 .box-con{
                     display:flex;
                     justify-content:center;
+                    flex-wrap:wrap;
                     .box{
                         background:white;
                         box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
@@ -245,6 +267,7 @@ const Container = styled.div`
                         padding:5px;
                         margin-left:7.5px;
                         margin-right:7.5px;
+                        margin-bottom:15px;
                         img{
                             width:100%;
                             height:100%;
