@@ -6,6 +6,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { BsArrowLeft } from 'react-icons/bs'
 import Carousel from 'react-elastic-carousel'
+import { Parser } from 'html-to-react'
+const parser = new Parser();
 
 const Landingpage = ({ data }) => {
     const { general } = React.useContext(MenuContext);
@@ -71,6 +73,9 @@ const Landingpage = ({ data }) => {
                                             </Link>
 
                                         ))}
+                                    </div>
+                                    <div className="deliverby">
+                                        {parser.parse(data.BottomContent)}
                                     </div>
                                 </div>
                             </div>
@@ -251,6 +256,18 @@ const Container = styled.div`
             }
             .brands{
                 margin-bottom:50px;
+            }
+            .coops{
+                .deliverby{
+                    opacity:0.7;
+                    margin-top:15px;
+                    a{
+                        color:rgb(0, 102, 192);
+                    }
+                    p{
+                        font-weight:500;
+                    }
+                }
             }
         }
     }
