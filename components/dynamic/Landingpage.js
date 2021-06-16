@@ -315,6 +315,8 @@ const Container = styled.div`
             }
         }
         .links-container{
+            padding-left:0px !important; 
+            padding-right:0px !important; 
             .backbutton{
                 left:15px !important;
                 top:25px !important;
