@@ -14,7 +14,7 @@ const Companies = () => {
     }, []);
 
     const go = async () => {
-        const res = await checkLanguage('/companies');
+        const res = await checkLanguage('/companies?_sort=Importance:ASC');
         setCompanies(res.data);
     }
 
