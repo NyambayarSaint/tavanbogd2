@@ -1,8 +1,8 @@
 module.exports = {
     env: {
-        serverUrl: 'http://admin-mn.tavanbogd.com',
-        serverUrlEnglish: 'http://admin-en.tavanbogd.com/',
-        frontUrl: 'http://tavanbogd.com',
+        serverUrl: 'https://admin-mn.tavanbogd.com',
+        serverUrlEnglish: 'https://admin-en.tavanbogd.com/',
+        frontUrl: 'https://tavanbogd.com',
         pageUrl: '/p'
     }
 }
