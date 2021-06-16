@@ -197,6 +197,7 @@ const Container = styled.div`
                         font-weight:400;
                         opacity:0.7;
                         margin-bottom:0px;
+                        width:350px;
                     }
                     &:hover{
                         background:${({ theme }) => theme.mainColor2};
@@ -319,6 +320,7 @@ const Container = styled.div`
                     .ct{
                         h4{
                             font-size:16px;
+                            width:unset;
                         }
                     }
                 }
