@@ -7,15 +7,20 @@ import Link from 'next/link';
 import { BsArrowLeft } from 'react-icons/bs'
 import Carousel from 'react-elastic-carousel'
 import { Parser } from 'html-to-react'
+import { changeLang, returnLanguage } from '../miscs/parseCookies';
 const parser = new Parser();
 
 const Landingpage = ({ data }) => {
     const { general } = React.useContext(MenuContext);
     const [onlineMenu, setOnlineMenu] = React.useState(false);
     const { config } = React.useContext(MenuContext);
+    
     return (
         <Container style={{ backgroundImage: `url(${minimize(data.Background)})` }}>
             <div className="con">
+                <div className="language-container" style={{ cursor: 'pointer' }}>
+                    {returnLanguage() === "mn" ? <img onClick={() => changeLang()} src="/img/en.png" /> : <img onClick={() => changeLang()} src="/img/mn.jpg" />}
+                </div>
                 <AnimatePresence>
                     {onlineMenu &&
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -161,7 +166,15 @@ const Container = styled.div`
         height:100%;
         position:relative;
         z-index:2;
-        
+        .language-container{
+            position:absolute;
+            top:15px;
+            right:15px;
+            z-index:10;
+            img{
+                width:35px;
+            }
+        }
         .top{
             text-align:center;
             margin-top:-100px;
