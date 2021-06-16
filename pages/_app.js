@@ -20,7 +20,7 @@ class MyApp extends App {
   };
   async componentDidMount() {
     if(location.hostname === "tavanbogd.mn"){
-      location.href = "http://tavanbogd.com"
+      location.href = "http://tavanbogd.com" + location.pathname
     }
     const res = await checkLanguage('/settings', null);
     const config = { width: window.innerWidth, height: window.innerHeight };
