@@ -223,6 +223,7 @@ const Popup = styled.div`
             display:flex;
             align-items:center;
             justify-content:space-between;
+            flex-direction:row-reverse;
             ${({ color }) => color === "white" ? 'border-top:1px solid rgba(255,255,255,0.1);' : 'border-top:1px solid rgba(0,0,0,0.1);'};
             .language-container{
                 img{
