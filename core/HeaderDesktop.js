@@ -35,7 +35,7 @@ const HeaderDesktop = ({headerType}) => {
     return (
         <>
             <Container color={mode} ref={refContainer} className="vw5" >
-                <Link href="/p/home"><a>
+                <Link href="/"><a>
                     {mode === "black" ? <img src="/img/logo.png" /> : <img src="/img/logo-white3.png" />}
                 </a></Link>
                 <div className="main">
