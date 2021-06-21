@@ -22,7 +22,7 @@ const HeaderMobile = () => {
 
     const checkMode = () => {
         const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
-        if (location.pathname === "/") {
+        if (location.pathname === "/p/home") {
             setHeight(0);
             if (scrollPos === 0) return setMode('white');
             return setMode('black');
@@ -70,7 +70,7 @@ const HeaderMobile = () => {
                         animationDuration={0.3}
                     />
                 </div>
-                <Link href="/"><a className="main-logo">
+                <Link href="/p/home"><a className="main-logo">
                     {mode === "black" ? <img src="/img/small-logo-color.png" /> : <img src="/img/small-logo-white.png" />}
                 </a></Link>
                 <div className="search-container" onClick={() => menuOpenHandler("triggerSearch")}>
