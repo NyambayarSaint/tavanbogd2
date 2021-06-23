@@ -15,6 +15,7 @@ const HeaderDesktop = ({headerType}) => {
     const refContainer = React.useRef();
 
     const checkMode = () => {
+        console.log('aliishuu', headerType)
         const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
         if (headerType === "white") {
             setHeight(0);
@@ -35,7 +36,7 @@ const HeaderDesktop = ({headerType}) => {
     return (
         <>
             <Container color={mode} ref={refContainer} className="vw5" >
-                <Link href="/"><a>
+                <Link href="/p/home"><a>
                     {mode === "black" ? <img src="/img/logo.png" /> : <img src="/img/logo-white3.png" />}
                 </a></Link>
                 <div className="main">
