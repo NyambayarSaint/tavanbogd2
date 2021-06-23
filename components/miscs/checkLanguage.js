@@ -8,12 +8,14 @@ const checkLanguage = async (queryString, server) => {
     // const httpObject = { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: `query ${queryString}` }) }
     return new Promise(async (resolve, reject) => {
         if (cookies['tblang'] === "en") {
-            const res = await Axios.post(process.env.frontUrl + '/api/redirect', { url: process.env.serverUrlEnglish + queryString });
-            return resolve({ data: res.data.data });
+            const res = await fetch(process.env.serverUrlEnglish + queryString);
+            const pageData = await res.json();
+            return resolve({ data: pageData });
         }
         else {
-            const res = await Axios.post(process.env.frontUrl + '/api/redirect', { url: process.env.serverUrl + queryString });
-            return resolve({ data: res.data.data });
+            const res = await fetch(process.env.serverUrl + queryString);
+            const pageData = await res.json();
+            return resolve({ data: pageData });
         }
     });
 

@@ -16,13 +16,12 @@ class MyApp extends App {
     general: {},
     completelyLoaded: false,
     name: 'Таван Богд Групп | Tavan Bogd Group',
-    description: 'Description...'
+    description: 'Хамтын хүч, амжилтын түлхүүр'
   };
   async componentDidMount() {
-    if(location.hostname === "tavanbogd.mn"){
-      location.href = "http://tavanbogd.com" + location.pathname
-    }
-    console.log(location,'yahaha');
+    // if(location.hostname === "tavanbogd.mn"){
+    //   location.href = "http://tavanbogd.com" + location.pathname
+    // }
     const res = await checkLanguage('/settings', null);
     const config = { width: window.innerWidth, height: window.innerHeight };
     this.setState({ completelyLoaded: true, config, general: res.data });
