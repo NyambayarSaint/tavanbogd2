@@ -19,9 +19,9 @@ class MyApp extends App {
     description: 'Хамтын хүч, амжилтын түлхүүр'
   };
   async componentDidMount() {
-    // if(location.hostname === "tavanbogd.mn"){
-    //   location.href = "http://tavanbogd.com" + location.pathname
-    // }
+    if(location.pathname === "/"){
+      location.href = "http://tavanbogd.com/p/landingpage"
+    }
     const res = await checkLanguage('/settings', null);
     const config = { width: window.innerWidth, height: window.innerHeight };
     this.setState({ completelyLoaded: true, config, general: res.data });
