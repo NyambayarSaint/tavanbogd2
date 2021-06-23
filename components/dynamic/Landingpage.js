@@ -8,13 +8,15 @@ import { BsArrowLeft } from 'react-icons/bs'
 import Carousel from 'react-elastic-carousel'
 import { Parser } from 'html-to-react'
 import { changeLang, returnLanguage } from '../miscs/parseCookies';
+import { useRouter } from 'next/router';
 const parser = new Parser();
 
 const Landingpage = ({ data }) => {
     const { general } = React.useContext(MenuContext);
     const [onlineMenu, setOnlineMenu] = React.useState(false);
     const { config } = React.useContext(MenuContext);
-    
+    const R = useRouter();
+
     return (
         <Container style={{ backgroundImage: `url(${minimize(data.Background)})` }}>
             <div className="con">
@@ -113,11 +115,9 @@ const Landingpage = ({ data }) => {
                                 <img src={minimize(data.Logo)} />
                                 <div className="box">
                                     <div className="ct">
-                                        <Link href="/">
-                                            <a>
-                                                <h4>{data.Website}</h4>
-                                            </a>
-                                        </Link>
+                                        <a onClick={()=>R.push('/')}>
+                                            <h4>{data.Website}</h4>
+                                        </a>
                                     </div>
                                     <div className="ct" onClick={() => setOnlineMenu(true)}>
                                         <h4>{data.Online}</h4>
