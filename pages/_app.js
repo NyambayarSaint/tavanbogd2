@@ -19,23 +19,10 @@ class MyApp extends App {
     description: 'Description...'
   };
   async componentDidMount() {
-    if (location.hostname === "tavanbogd.mn") {
-      if (location.pathname === "/") {
-        location.href = "/p/landingpage"
-      }
-      else {
-        location.href = "http://tavanbogd.com" + location.pathname
-      }
+    if(location.hostname === "tavanbogd.mn"){
+      location.href = "http://tavanbogd.com" + location.pathname
     }
-    if (location.hostname === "tavanbogd.com") {
-      if (location.pathname === "/") {
-        location.href = "/p/landingpage"
-      }
-      else {
-        location.href = "http://tavanbogd.com" + location.pathname
-      }
-    }
-    console.log(location, 'yahaha');
+    console.log(location,'yahaha');
     const res = await checkLanguage('/settings', null);
     const config = { width: window.innerWidth, height: window.innerHeight };
     this.setState({ completelyLoaded: true, config, general: res.data });
