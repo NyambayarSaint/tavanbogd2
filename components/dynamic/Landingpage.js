@@ -113,7 +113,7 @@ const Landingpage = ({ data }) => {
                                 <img src={minimize(data.Logo)} />
                                 <div className="box">
                                     <div className="ct">
-                                        <Link href="/p/home">
+                                        <Link href="/">
                                             <a>
                                                 <h4>{data.Website}</h4>
                                             </a>
