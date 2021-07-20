@@ -40,7 +40,7 @@ const Tenders = ({ data }) => {
                                     <Td style={{ textAlign: 'center' }}>
                                         <div><a href={process.env.serverUrl + el.Image.url} target="__blank"><Image src={el.Image} size="small" /></a></div>
                                     </Td>
-                                    <Td><div>{el.Company.Title}</div></Td>
+                                    <Td><div>{el.Company && el.Company.Title}</div></Td>
                                     <Td>
                                         <div>{el.Contact}</div>
                                     </Td>
