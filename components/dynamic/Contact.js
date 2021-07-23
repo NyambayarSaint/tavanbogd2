@@ -30,7 +30,7 @@ const Contact = ({ data }) => {
             <Container>
                 <div className="row">
                     <div className="col-md-7">
-                        <div data-erxes-embed={data.Erxes_form_id} style={{ width: '100%', height: '341px' }}></div>
+                        <div data-erxes-embed={data.Erxes_form_id} style={{ width: '100%', height: 'auto' }}></div>
                     </div>
                     <div className="col-md-5">
                         <div className="box">
