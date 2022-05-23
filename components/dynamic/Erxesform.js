@@ -9,8 +9,8 @@ const Erxesform = ({data}) => {
         if(data.TopicID) window.erxesSettings = { knowledgeBase: { topic_id: data.TopicID || '' }, messenger: { brand_id: data.Brand, }};
         else window.erxesSettings = { forms: [{ brand_id: data.Brand || '', form_id: data.Form || '', }], messenger: { brand_id: data.Brand, } };
         var script = document.createElement('script');
-        if(data.TopicID) script.src = "https://erxes.tavanbogd.mn/widgets/build/knowledgebaseWidget.bundle.js";
-        else script.src = "https://erxes.tavanbogd.mn/widgets/build/formWidget.bundle.js";
+        if(data.TopicID) script.src = "https://xos.tavanbogd.com/widgets/build/knowledgebaseWidget.bundle.js";
+        else script.src = "https://xos.tavanbogd.com/widgets/build/formWidget.bundle.js";
         script.async = true;
         var entry = document.getElementsByTagName('script')[0];
         entry.parentNode.insertBefore(script, entry);
