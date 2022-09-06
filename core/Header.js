@@ -10,8 +10,8 @@ const Header = ({headerType}) => {
     return (
         <Container>
             <>
-                {config.width > 768 && <HeaderDesktop headerType={headerType} />}
-                {config.width < 768 && <HeaderMobile headerType={headerType} />}
+                {config.width > 1380 && <HeaderDesktop headerType={headerType} />}
+                {config.width < 1380 && <HeaderMobile headerType={headerType} />}
             </>
         </Container>
     );
