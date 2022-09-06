@@ -15,7 +15,6 @@ const HeaderDesktop = ({headerType}) => {
     const refContainer = React.useRef();
 
     const checkMode = () => {
-        console.log('aliishuu', headerType)
         const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
         if (headerType === "white") {
             setHeight(0);
