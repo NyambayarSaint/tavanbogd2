@@ -51,6 +51,7 @@ const Container = styled.div`
         min-height:${({minHeight}) => minHeight && minHeight}px;
         canvas{
             margin:auto;
+            box-shadow:rgb(0 0 0 / 25%) 0px 2px 4px 0px;
         }
         .control_wrapper{
             position:absolute;
